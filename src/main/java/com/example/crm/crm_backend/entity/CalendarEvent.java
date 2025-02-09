@@ -15,15 +15,15 @@ public class CalendarEvent {
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
-    @JsonIgnoreProperties("hibernateLazyInitializer") // <-- DODAJ TO!
+    @JsonIgnoreProperties("hibernateLazyInitializer")
     private User user;
-    private LocalDate date; // Data wydarzenia
+    private LocalDate date;
 
-    private String content; // Treść wydarzenia
+    private String content;
 
-    private String color; // Kolor wydarzenia (np. "#FF5733")
+    private String color;
 
-    private LocalDateTime createdAt = LocalDateTime.now(); // Kiedy dodano
+    private LocalDateTime createdAt = LocalDateTime.now();
 
     public Long getId() {
         return id;

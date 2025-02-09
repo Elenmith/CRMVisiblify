@@ -19,18 +19,38 @@ public class Client {
     @Column
     private String phoneNumber;
 
-    @Column
-    private String address;
+    @Column(nullable = false)
+    private String streetAddress;
 
-    public Client(Long id, String companyName, String email, String phoneNumber, String address) {
+    @Column(nullable = false)
+    private String postalCode;
+
+    @Column(nullable = false)
+    private String addressLocality;
+
+    @Column
+    private String url;
+
+    @Column
+    private String sameAs;
+
+    @Column
+    private String type;
+
+    public Client(Long id, String companyName, String email, String phoneNumber, String streetAddress, String postalCode, String addressLocality, String url, String sameAs, String type) {
         this.id = id;
         this.companyName = companyName;
         this.email = email;
         this.phoneNumber = phoneNumber;
-        this.address = address;
+        this.streetAddress = streetAddress;
+        this.postalCode = postalCode;
+        this.addressLocality = addressLocality;
+        this.url = url;
+        this.sameAs = sameAs;
+        this.type = type;
     }
-    public Client(){
 
+    public Client() {
     }
 
     public Long getId() {
@@ -65,11 +85,51 @@ public class Client {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getAddress() {
-        return address;
+    public String getStreetAddress() {
+        return streetAddress;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setStreetAddress(String streetAddress) {
+        this.streetAddress = streetAddress;
+    }
+
+    public String getPostalCode() {
+        return postalCode;
+    }
+
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
+    }
+
+    public String getAddressLocality() {
+        return addressLocality;
+    }
+
+    public void setAddressLocality(String addressLocality) {
+        this.addressLocality = addressLocality;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getSameAs() {
+        return sameAs;
+    }
+
+    public void setSameAs(String sameAs) {
+        this.sameAs = sameAs;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

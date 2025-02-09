@@ -17,7 +17,12 @@ public class ClientMapper {
                 client.getCompanyName(),
                 client.getEmail(),
                 client.getPhoneNumber(),
-                client.getAddress()
+                client.getStreetAddress(),
+                client.getPostalCode(),
+                client.getAddressLocality(),
+                client.getUrl(),
+                client.getSameAs(),
+                client.getType()
         );
     }
 
@@ -27,7 +32,12 @@ public class ClientMapper {
                 clientDto.getCompanyName(),
                 clientDto.getEmail(),
                 clientDto.getPhoneNumber(),
-                clientDto.getAddress()
+                clientDto.getStreetAddress(),
+                clientDto.getPostalCode(),
+                clientDto.getAddressLocality(),
+                clientDto.getUrl(),
+                clientDto.getSameAs(),
+                clientDto.getType()
         );
     }
 }

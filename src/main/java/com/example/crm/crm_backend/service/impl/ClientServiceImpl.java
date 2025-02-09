@@ -34,7 +34,7 @@ public class ClientServiceImpl implements ClientService {
     public List<ClientDto> getAllClients() {
         List<Client> clients = clientRepository.findAll();
 
-        return clients.stream().map((client) -> ClientMapper.toDto(client))
+        return clients.stream().map(ClientMapper::toDto)
                 .collect(Collectors.toList());
     }
 
@@ -42,7 +42,7 @@ public class ClientServiceImpl implements ClientService {
     public ClientDto getClientById(Long id) {
         Client client = clientRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Client not found"));
-        return ClientMapper.toDto(client);                    // Mapowanie Entity -> DTO
+        return ClientMapper.toDto(client);
     }
 
     @Override
@@ -50,20 +50,24 @@ public class ClientServiceImpl implements ClientService {
         Client client = clientRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Client not found"));
 
-        // Aktualizacja pól z DTO
         client.setCompanyName(clientDto.getCompanyName());
         client.setEmail(clientDto.getEmail());
         client.setPhoneNumber(clientDto.getPhoneNumber());
-        client.setAddress(clientDto.getAddress());
+        client.setStreetAddress(clientDto.getStreetAddress());
+        client.setPostalCode(clientDto.getPostalCode());
+        client.setAddressLocality(clientDto.getAddressLocality());
+        client.setUrl(clientDto.getUrl());
+        client.setSameAs(clientDto.getSameAs());
+        client.setType(clientDto.getType());
 
         Client updatedClient = clientRepository.save(client);
-        return ClientMapper.toDto(updatedClient);             // Mapowanie Entity -> DTO
+        return ClientMapper.toDto(updatedClient);
     }
 
     @Override
     public void deleteClient(Long id) {
-        Client client = clientRepository.findById(id).orElseThrow(() -> new RuntimeException("Client is not exists with given id: " + id));
+        Client client = clientRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Client is not exists with given id: " + id));
         clientRepository.deleteById(id);
     }
-
 }
