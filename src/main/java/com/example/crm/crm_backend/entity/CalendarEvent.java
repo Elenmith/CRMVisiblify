@@ -24,6 +24,8 @@ public class CalendarEvent {
 
     private String content;
 
+    private String description;
+
     private String color;
 
     private LocalDateTime createdAt = LocalDateTime.now();
@@ -66,6 +68,14 @@ public class CalendarEvent {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getColor() {

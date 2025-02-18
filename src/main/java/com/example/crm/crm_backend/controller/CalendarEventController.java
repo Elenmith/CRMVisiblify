@@ -68,9 +68,10 @@ public class CalendarEventController {
         CalendarEvent event = calendarEventRepository.findById(id).orElseThrow();
 
         event.setDate(eventDto.getDate());
-        event.setTime(eventDto.getTime()); // USTAWIAMY GODZINĘ
+        event.setTime(eventDto.getTime());
         event.setContent(eventDto.getContent());
         event.setColor(eventDto.getColor());
+        event.setDescription(eventDto.getDescription());
 
         calendarEventRepository.save(event);
         return ResponseEntity.ok("Event updated successfully!");

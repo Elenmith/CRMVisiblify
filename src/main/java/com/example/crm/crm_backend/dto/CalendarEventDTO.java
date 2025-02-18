@@ -9,6 +9,8 @@ public class CalendarEventDTO {
 
     private LocalTime time;
     private String content;
+
+    private String description;
     private String color;
 
 
@@ -44,6 +46,14 @@ public class CalendarEventDTO {
         this.content = content;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public String getColor() {
         return color;
     }
@@ -52,12 +62,13 @@ public class CalendarEventDTO {
         this.color = color;
     }
 
-    public CalendarEventDTO(Long userId, LocalTime time, LocalDate date, String content, String color) {
+    public CalendarEventDTO(Long userId, LocalTime time, LocalDate date, String content, String description, String color) {
         this.userId = userId;
         this.date = date;
         this.content = content;
         this.color = color;
         this.time = time;
+        this.description = description;
     }
 
     public CalendarEventDTO(){
