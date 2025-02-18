@@ -61,18 +61,21 @@ public class CalendarEventController {
         }
     }
 
+
     // Edycja wydarzenia
     @PutMapping("/{id}")
     public ResponseEntity<String> updateEvent(@PathVariable Long id, @RequestBody CalendarEventDTO eventDto) {
         CalendarEvent event = calendarEventRepository.findById(id).orElseThrow();
 
         event.setDate(eventDto.getDate());
+        event.setTime(eventDto.getTime()); // USTAWIAMY GODZINĘ
         event.setContent(eventDto.getContent());
         event.setColor(eventDto.getColor());
 
         calendarEventRepository.save(event);
         return ResponseEntity.ok("Event updated successfully!");
     }
+
 
     // Usunięcie wydarzenia
     @DeleteMapping("/{id}")

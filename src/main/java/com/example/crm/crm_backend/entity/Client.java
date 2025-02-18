@@ -19,19 +19,19 @@ public class Client {
     @Column
     private String phoneNumber;
 
-    @Column(nullable = false)
+    @Column(name = "street_address", nullable = false)
     private String streetAddress;
 
-    @Column(nullable = false)
+    @Column(name = "postal_code", nullable = false)
     private String postalCode;
 
-    @Column(nullable = false)
+    @Column(name = "address_locality", nullable = false)
     private String addressLocality;
 
     @Column
     private String url;
 
-    @Column
+    @Column(name = "same_as")
     private String sameAs;
 
     @Column

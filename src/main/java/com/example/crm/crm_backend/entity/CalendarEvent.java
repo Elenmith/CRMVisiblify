@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 @Entity
 @Table(name = "calendar_events")
@@ -18,6 +19,8 @@ public class CalendarEvent {
     @JsonIgnoreProperties("hibernateLazyInitializer")
     private User user;
     private LocalDate date;
+
+    private LocalTime time;
 
     private String content;
 
@@ -49,6 +52,13 @@ public class CalendarEvent {
         this.date = date;
     }
 
+    public LocalTime getTime() {
+        return time;
+    }
+
+    public void setTime(LocalTime time) {
+        this.time = time;
+    }
 
     public String getContent() {
         return content;

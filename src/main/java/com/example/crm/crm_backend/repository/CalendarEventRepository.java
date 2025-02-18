@@ -11,5 +11,9 @@ import java.util.List;
 public interface CalendarEventRepository extends JpaRepository<CalendarEvent, Long> {
     // Pobiera wydarzenia dla konkretnego użytkownika
     List<CalendarEvent> findByUserId(Long userId);
+
+    // pobieranie poszczególnych elementów aby w przyszłości umożliwić sortowanie
+    // dokonywanie zmian na kalendarzu itp
+    @Deprecated
     List<CalendarEvent> findByUserIdAndDateBetween(Long userId, LocalDate startDate, LocalDate endDate);
 }
